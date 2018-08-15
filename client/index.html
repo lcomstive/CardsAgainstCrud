@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<title>CardsAgainstCrud</title>
+
+		<link rel="stylesheet" href="index.css">
+		<script src="./DragAndDropTouch/DragDropTouch.js"></script>
+		<script src="index.js"></script>
+	</head>
+	<body onload="setup()">
+		<p id="connectionStatus">Status: disconnected</p>
+		<div id="pageLogin">
+			<div id="loginMain" class="enabled">
+				<h1>Login</h1>
+				<input id="inputUsername" placeholder="Username" />
+				<input id="inputServer" placeholder="Server Address" />
+				<button onclick="login()">Login</button>
+				<p style="width:100%;font-size:13px;color:gray;margin:0px;margin-top:3px;padding:0;">If the address is blank, default server is used</p>
+				<p id="loginError">Test error........</p>
+			</div>
+			<div id="loginLoading"></div>
+		</div>
+		<div id="pageGame">
+			<button id="btnLogout" onclick="logout()">Logout</button>
+			<div id="gameInfo">
+				<p id="gameInfoPlayerCount">Players: 0</p>
+				<p id="gameInfoPlayerPoints">Points: 0</p>
+			</div>
+			<div id="lastPlayedCard">
+				<p>Something _ something.</p>
+				<p id="lastPlayedCardUsername"><i>lcomstive</i></p>
+			</div>
+			<div id="gameSendCard">
+				<p>Drop card to send</p>
+			</div>
+			<div id="gameCards">
+				<div class="row">
+					<div id="gamePlayedCallCard"><p>Something _ something.</p></div>
+					<div id="gameCard1" draggable="true"><p></p></div>
+					<div id="gameCard2" draggable="true"><p></p></div>
+					<div id="gameCard3" draggable="true"><p></p></div>
+				</div>
+				<div class="row">
+					<div id="gameCard4" draggable="true"><p></p></div>
+					<div id="gameCard5" draggable="true"><p></p></div>
+					<div id="gameCard6" draggable="true"><p></p></div>
+					<div id="gameCard7" draggable="true"><p></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

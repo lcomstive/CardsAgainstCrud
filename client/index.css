@@ -1,0 +1,343 @@
+*
+{
+	font-family: 'Verdana', sans-serif;
+}
+
+html, body
+{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+button
+{
+	border: 1px solid #ddd;
+	background: #eee;
+	border-radius: 1px;
+}
+button:focus { outline: 0; }
+
+input
+{
+	box-sizing: border-box;
+	background: none;
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border: 1px solid #ddd;
+}
+
+#pageLogin, #pageGame
+{
+	position: absolute;
+	left: 0; right: 0; top: 0; bottom: 0;
+
+	transition: all .5s;
+	-o-transition: all .5s;
+	-moz-transition: all .5s;
+	-webkit-transition: all .5s;
+}
+
+#pageLogin.enabled, #pageGame.enabled
+{
+	top: 0;
+	z-index: 1;
+	opacity: 1;
+}
+
+#pageLogin.disabled, #pageGame.disabled
+{
+	top: 100%;
+	z-index: 0;
+	opacity: 0;
+}
+
+#connectionStatus
+{
+	position: absolute;
+	left: 10px;
+	top: 5px;
+	height: 20px;
+	opacity: 0.5;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+}
+
+/* PageLogin specific */
+#pageLogin
+{
+	text-align: center;
+}
+
+#loginMain
+{
+	opacity: 0;
+	width: 0;
+	margin: auto;
+	margin-top: 45vh;
+
+	transition: all .75s;
+	-o-transition: all .75s;
+	-moz-transition: all .75s;
+	-webkit-transition: all .75s;
+}
+#loginMain * { width: 100%; }
+
+#loginMain.enabled
+{
+	opacity: 1;
+	width: 25vw;
+}
+
+#loginLoading
+{
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	transition: all .75s;
+	-o-transition: all 0.75s;
+	-moz-transition: all 0.75s;
+	-webkit-transition: all 0.75s;
+
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	left: calc(50% - 60px); right: calc(50% - 60px);
+	top: calc(50% - 60px); bottom: calc(50% - 60px);
+
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3498db;
+
+	animation: spin 2s linear infinite;
+	-webkit-animation: spin 2s linear infinite;
+
+	z-index: -1;
+}
+
+#loginLoading.enabled
+{
+	opacity: 1;
+	z-index: 1;
+}
+
+#loginError
+{
+	padding: 0;
+	margin: 0;
+	margin-top: 2.5px;
+	color: red;
+	opacity: 0.8;
+}
+
+/* PageGame specific */
+#pageGame
+{
+	opacity: 0;
+	/* top: 22.5%; */
+}
+
+#btnLogout
+{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 1;
+}
+
+#gameCards
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 75%;
+	transition: all 0.5s;
+	font-size: 15px;
+}
+
+.row
+{
+	width: 100%;
+	height: 50%;
+	float: left;
+}
+
+.row div
+{
+	width: calc(25vw - 5px);
+	height: 97.5%;
+	float: left;
+	background: white;
+	border: .5px solid #eee;
+	border-radius: 10px;
+	padding: 0;
+	margin: 0;
+	margin-left: 3px;
+	cursor: move;
+	transition: all .25s;
+}
+
+.row div p
+{
+	padding: 12.5px;
+	padding-top: 2.5px;
+	padding-bottom: 2.5px;
+}
+
+.row div:hover
+{
+	background: #eee;
+}
+
+#gamePlayedCallCard
+{
+	color: #fff !important;
+	background: #000 !important;
+	cursor: auto !important;
+
+	user-select: none;
+	-o-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+#gamePlayedCallCard:hover
+{
+	background: black;
+}
+
+#gameSendCard
+{
+	position: absolute;
+	left: calc(15vw + 10px);
+	right: 10px;
+	top: 10px;
+	height: 20vh;
+	outline: rgba(0, 0, 0, 0.1) dashed 2px;
+}
+
+#gameSendCard p
+{
+	text-align: center;
+	color: rgba(0, 0, 0, 0.25);
+	margin-top: 9vh;
+}
+
+#gamePlayer, #gameCzar
+{
+	opacity: 0;
+	z-index: -1;
+	transition: all 0.3s;
+}
+
+#gamePlayer.enable, #gameCzar.enable
+{
+	opacity: 1 !important;
+	z-index: 0 !important;
+}
+
+#gameInfo
+{
+	position: absolute;
+	left: 10px;
+	top: 18px;
+	width: 15vw;
+
+	margin: 0;
+	font-size: 14px;
+	margin-top: 2px;
+	color: rgba(0, 0, 0, 0.75);
+}
+
+#gameInfo p
+{
+	margin: 0;
+}
+
+#lastPlayedCard
+{
+	position: absolute;
+	left: 10px;
+	top: 60px;
+	width: calc(15vw - 20px);
+	height: calc(20vh + 10px - 60px);
+
+	margin: 0;
+	padding: 5px;
+	padding-top: 3px;
+	padding-bottom: 0;
+
+	color: white;
+	background-color: black;
+	font-size: 14px;
+	border-radius: 3px;
+}
+
+#lastPlayedCard p
+{
+	padding: 0;
+	margin: 0;
+}
+
+#lastPlayedCardUsername
+{
+	position: absolute;
+	bottom: 5px;
+	left: 5px; right: 5px;
+
+	text-align: right;
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+/* Drag and Drop */
+[draggable]
+{
+	user-select: none;
+	-o-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: element;
+}
+
+/* Animations */
+@keyframes spin
+{
+	0%	 { transform: rotate(0deg);   }
+	100% { transform: rotate(360deg); }
+}
+@-webkit-keyframes spin
+{
+	0% 	 { -webkit-transform: rotate(0deg);   }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 800px)
+{
+	#loginMain.enabled { width: 50%; }
+	#gameInfo, #connectionStatus { width: 30vw; font-size: 10px; }
+	#lastPlayedCard { width: calc(30vw - 20px); font-size: 11px; top: 55px; height: calc(20vh + 10px - 55px); }
+	#gameSendCard { left: calc(30vw + 10px); font-size: 13px; }
+	#gameCards { font-size: 13px; }
+
+	.row div p
+	{
+		margin: 0;
+		padding: 5px;
+	}
+}
+
+@media screen and (max-width: 600px), screen and (max-height: 400px)
+{
+	#gameInfo, #connectionStatus { width: 25vw; }
+	#loginMain.enabled { margin-top: 20vh; }
+	#gameSendCard { left: calc(25vw + 10px); }
+	#lastPlayedCard { font-size: 8px; width: calc(25vw - 20px); }
+	#lastPlayedCardUsername { font-size: 6px; }
+	#gameCards { font-size: 11px; }
+}
